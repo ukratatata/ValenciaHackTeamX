@@ -1,25 +1,30 @@
 """
-Datos simulados: perfil de usuario (como si viniesen de Cl@ve + Padrón + AEAT)
-y catálogo de trámites cargado desde data/tramites.json.
+Datos simulados: perfil de usuario y catálogo de trámites.
+Adaptado al pitch de GovPulse València (historia de Vlad).
 """
 
 import json
 from pathlib import Path
 
-# --- Perfil simulado del ciudadano (lo que Cl@ve + interoperabilidad devolvería) ---
+# --- Perfil simulado: Vlad (protagonista del pitch) ---
 USER_PROFILE_DB: dict[str, dict] = {
-    "USER_VALENCIA_778": {
-        "name": "María García López",
-        "nif": "12345678A",
-        "empadronado": True,
-        "direccion": "Calle de la Paz 14, 3º-5ª, 46003 València",
-        "barrio": "La Seu",
+    "USER_VLAD_019": {
+        "name": "Vlad Kowalenko",
+        "nif": "Y7654321Q",
+        "edad": 19,
+        "empadronado": False,
+        "direccion": "C/ del Mar 22, 2º-3ª, 46003 València",
+        "barrio": "El Mercat",
         "distrito": "Ciutat Vella",
-        "antiguedad_padron_meses": 24,
-        "family_members": 2,
-        "menores": 1,
-        "ingresos_ultimo_mes": 450.00,
+        "antiguedad_padron_meses": 0,
+        "family_members": 1,
+        "menores": 0,
+        "situacion_laboral": "Contrato temporal — Hostelería",
+        "contrato_vigente": True,
+        "ingresos_ultimo_mes": 1050.00,
         "prestacion_sepe": False,
+        "tarjeta_sip": False,
+        "inss_derecho_sanitario": False,
     }
 }
 

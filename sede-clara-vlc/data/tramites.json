@@ -1,55 +1,129 @@
 {
-  "AYUDAS_EMERGENCIA": {
-    "id": "AYUDAS_EMERGENCIA",
-    "title": "Prestación Económica Individualizada de Servicios Sociales (Ayudas de Emergencia)",
-    "description": "Ayudas económicas destinadas a atender situaciones de urgencia personal o familiar: alquiler, suministros, alimentación y necesidades básicas.",
-    "quien_puede": "Personas empadronadas en València en situación de vulnerabilidad económica sobrevenida.",
-    "plazo": "Abierto de forma permanente mientras haya dotación presupuestaria.",
+  "TARJETA_SIP": {
+    "id": "TARJETA_SIP",
+    "title": "Alta en el Sistema Sanitario – Tarjeta SIP",
+    "description": "Obtén tu tarjeta sanitaria (SIP) para acceder al sistema público de salud de la Comunitat Valenciana.",
+    "quien_puede": "Cualquier persona empadronada en la Comunitat Valenciana con derecho a asistencia sanitaria.",
+    "plazo": "Resolución estimada: 5-10 días hábiles.",
+    "consultas": [
+      {"organismo": "Policía Nacional / DGP", "dato": "Verificación de identidad (DNI/NIE)", "icono": "🛡️"},
+      {"organismo": "Seguridad Social (TGSS)", "dato": "Situación laboral y contrato vigente", "icono": "📋"},
+      {"organismo": "Ayuntamiento de València", "dato": "Certificado de empadronamiento", "icono": "🏛️"},
+      {"organismo": "INSS", "dato": "Derecho a prestación sanitaria", "icono": "🏥"},
+      {"organismo": "Conselleria de Sanitat", "dato": "Asignación de centro de salud", "icono": "💊"}
+    ],
     "auto_retrieved_docs": [
-      "Certificado histórico de empadronamiento (Padrón Municipal de València)",
-      "Verificación de titularidad catastral (Catastro - interop.)",
-      "Consulta de prestaciones SEPE (interop.)",
-      "Certificado de convivencia (Padrón Municipal)"
+      "Verificación de identidad (Policía Nacional — DGP)",
+      "Certificado de contrato vigente (Seguridad Social — TGSS)",
+      "Derecho a prestación sanitaria (INSS)",
+      "Asignación centro de salud por zona (Conselleria de Sanitat)"
     ],
     "user_required_docs": [
-      "Último recibo de alquiler o hipoteca",
-      "Extracto bancario de los últimos 3 meses"
+      "Contrato de alquiler (foto o PDF) — para empadronamiento automático"
     ],
-    "oficina": "Oficina de Servicios Sociales - Centro Municipal de Servicios Sociales de tu zona",
-    "url_oficial": "https://sede.valencia.es/sede/tramites/prestaciones-economicas"
+    "oficina": "Centro de Salud asignado por zona",
+    "url_oficial": "https://sede.valencia.es"
   },
   "PADRON_ALTA": {
     "id": "PADRON_ALTA",
     "title": "Inscripción en el Padrón Municipal de Habitantes",
     "description": "Alta o cambio de domicilio en el municipio de València.",
     "quien_puede": "Cualquier persona que resida efectivamente en el municipio de València.",
-    "plazo": "Se puede solicitar en cualquier momento. Resolución estimada: 1-4 semanas.",
+    "plazo": "Resolución estimada: 1-4 semanas.",
+    "consultas": [
+      {"organismo": "Policía Nacional / DGP", "dato": "Verificación de identidad", "icono": "🛡️"},
+      {"organismo": "Catastro", "dato": "Referencia catastral del domicilio", "icono": "🏠"}
+    ],
     "auto_retrieved_docs": [
-      "Consulta de identidad (DNI/NIE vía Cl@ve)"
+      "Consulta de identidad (DNI/NIE vía Cl@ve)",
+      "Referencia catastral del domicilio (Catastro)"
     ],
     "user_required_docs": [
-      "Contrato de arrendamiento superior a 6 meses o escritura de propiedad",
-      "Recibo de suministro (agua, luz, gas) o alquiler del mes en curso"
+      "Contrato de arrendamiento o escritura de propiedad",
+      "Recibo de suministro del mes en curso"
     ],
-    "oficina": "Junta Municipal de Distrito correspondiente a tu domicilio",
+    "oficina": "Junta Municipal de Distrito correspondiente",
     "url_oficial": "https://sede.valencia.es/sede/tramites/padron"
+  },
+  "AYUDAS_EMERGENCIA": {
+    "id": "AYUDAS_EMERGENCIA",
+    "title": "Prestación Económica de Emergencia (Servicios Sociales)",
+    "description": "Ayudas económicas para situaciones de urgencia: alquiler, suministros, alimentación y necesidades básicas.",
+    "quien_puede": "Personas empadronadas en València en situación de vulnerabilidad económica.",
+    "plazo": "Abierto permanentemente mientras haya dotación presupuestaria.",
+    "consultas": [
+      {"organismo": "Ayuntamiento de València", "dato": "Certificado de empadronamiento", "icono": "🏛️"},
+      {"organismo": "Catastro", "dato": "Titularidad de inmuebles", "icono": "🏠"},
+      {"organismo": "SEPE", "dato": "Prestaciones activas", "icono": "📋"},
+      {"organismo": "AEAT", "dato": "Nivel de renta", "icono": "💶"}
+    ],
+    "auto_retrieved_docs": [
+      "Certificado de empadronamiento (Padrón Municipal)",
+      "Verificación catastral (Catastro)",
+      "Consulta de prestaciones (SEPE)",
+      "Certificado de convivencia (Padrón Municipal)"
+    ],
+    "user_required_docs": [
+      "Último recibo de alquiler o hipoteca",
+      "Extracto bancario de los últimos 3 meses"
+    ],
+    "oficina": "Centro Municipal de Servicios Sociales de tu zona",
+    "url_oficial": "https://sede.valencia.es/sede/tramites/prestaciones-economicas"
   },
   "AYUDAS_DANA": {
     "id": "AYUDAS_DANA",
     "title": "Ayudas Municipales por Daños de la DANA",
-    "description": "Ayudas económicas para personas y familias afectadas por la DANA: daños en vivienda, enseres y vehículos.",
+    "description": "Ayudas para personas y familias afectadas por la DANA: vivienda, enseres y vehículos.",
     "quien_puede": "Personas empadronadas en València con daños acreditados por la DANA.",
-    "plazo": "Convocatoria abierta hasta agotar crédito. Subsanaciones: 10 días hábiles desde el requerimiento.",
+    "plazo": "Convocatoria abierta hasta agotar crédito.",
+    "consultas": [
+      {"organismo": "Ayuntamiento de València", "dato": "Certificado de empadronamiento", "icono": "🏛️"},
+      {"organismo": "Catastro", "dato": "Inmueble afectado", "icono": "🏠"},
+      {"organismo": "Bomberos / Policía Local", "dato": "Informe de daños", "icono": "🚒"}
+    ],
     "auto_retrieved_docs": [
       "Certificado de empadronamiento (Padrón Municipal)",
       "Consulta catastral del inmueble afectado",
-      "Informe de Bomberos / Policía Local (si existe en registro municipal)"
+      "Informe de Bomberos / Policía Local"
     ],
     "user_required_docs": [
       "Fotografías de los daños",
       "Presupuesto de reparación o factura"
     ],
-    "oficina": "Oficina de Atención DANA - Tabacalera o Junta Municipal",
+    "oficina": "Oficina de Atención DANA - Tabacalera",
     "url_oficial": "https://sede.valencia.es/sede/tramites/ayudas-dana"
+  },
+  "CERTIFICADO_DIGITAL": {
+    "id": "CERTIFICADO_DIGITAL",
+    "title": "Obtención de Certificado Digital (persona física)",
+    "description": "Solicitud y obtención del certificado digital FNMT para trámites electrónicos.",
+    "quien_puede": "Cualquier persona mayor de edad con DNI/NIE.",
+    "plazo": "Inmediato tras validación presencial.",
+    "consultas": [],
+    "auto_retrieved_docs": [],
+    "user_required_docs": ["DNI/NIE en vigor"],
+    "oficina": "Oficinas de la AEAT o puntos de registro autorizados",
+    "url_oficial": "https://www.sede.fnmt.gob.es"
+  },
+  "BONO_SOCIAL": {
+    "id": "BONO_SOCIAL",
+    "title": "Solicitud de Bono Social Eléctrico",
+    "description": "Descuento en la factura eléctrica para consumidores vulnerables.",
+    "quien_puede": "Personas con renta inferior al umbral establecido o en situación de vulnerabilidad.",
+    "plazo": "Resolución en 10 días hábiles.",
+    "consultas": [
+      {"organismo": "AEAT", "dato": "Nivel de renta", "icono": "💶"},
+      {"organismo": "SEPE", "dato": "Situación de desempleo", "icono": "📋"}
+    ],
+    "auto_retrieved_docs": [
+      "Declaración de la renta (AEAT)",
+      "Situación laboral (SEPE)"
+    ],
+    "user_required_docs": [
+      "Última factura eléctrica",
+      "Datos del titular del contrato"
+    ],
+    "oficina": "Comercializadora de referencia",
+    "url_oficial": "https://sede.valencia.es"
   }
 }

@@ -1,7 +1,6 @@
 """
-Servicio "fake LLM" para la demo.
-Simula un delay + siempre devuelve AYUDAS_EMERGENCIA como trámite recomendado.
-En producción se reemplazaría por una llamada real a un LLM con RAG.
+Servicio "fake LLM" para la demo de GovPulse València.
+Simula delay + siempre devuelve TARJETA_SIP como trámite principal.
 """
 
 import asyncio
@@ -10,42 +9,50 @@ from app.services.mock_data import PROCEDURES_CATALOG
 
 async def search_procedures(user_text: str) -> dict:
     """
-    Simula la búsqueda inteligente de trámites.
-    En la demo: delay de 1.2s para parecer real + devuelve siempre
-    AYUDAS_EMERGENCIA (y PADRON_ALTA si detecta keywords).
+    Simula búsqueda inteligente. En la demo: delay 1.2s,
+    siempre devuelve TARJETA_SIP (flujo principal del pitch).
     """
-    # Delay para que en la demo parezca que "piensa"
     await asyncio.sleep(1.2)
 
     results = []
 
-    # Siempre incluir ayudas de emergencia (es la demo principal)
+    # Siempre incluir tarjeta SIP (demo principal del pitch)
     results.append({
-        **PROCEDURES_CATALOG["AYUDAS_EMERGENCIA"],
-        "match_score": 0.94,
-        "reason": "Tu situación indica posible necesidad de apoyo económico urgente. "
-                  "Esta prestación cubre alquiler, suministros y necesidades básicas.",
+        **PROCEDURES_CATALOG["TARJETA_SIP"],
+        "match_score": 0.96,
+        "reason": "Para acceder al sistema sanitario necesitas la tarjeta SIP. "
+                  "GovPulse puede gestionar automáticamente el empadronamiento, "
+                  "el derecho INSS y la solicitud sanitaria en una sola petición.",
     })
 
-    # Si menciona empadronamiento, añadir también
     lower = user_text.lower()
-    if any(kw in lower for kw in ("empadron", "vivir", "mudar", "domicilio", "casa nueva")):
+
+    # Si menciona empadronamiento
+    if any(kw in lower for kw in ("empadron", "vivir", "mudar", "domicilio", "registr")):
         results.append({
             **PROCEDURES_CATALOG["PADRON_ALTA"],
-            "match_score": 0.87,
-            "reason": "Parece que necesitas registrar tu domicilio en València.",
+            "match_score": 0.89,
+            "reason": "Necesitas registrar tu domicilio en València para acceder a servicios públicos.",
+        })
+
+    # Si menciona ayudas / dinero / emergencia
+    if any(kw in lower for kw in ("ayuda", "dinero", "alquiler", "pagar", "emergencia", "vulnerable")):
+        results.append({
+            **PROCEDURES_CATALOG["AYUDAS_EMERGENCIA"],
+            "match_score": 0.91,
+            "reason": "Existen ayudas de emergencia para cubrir alquiler, suministros y necesidades básicas.",
         })
 
     # Si menciona DANA
     if any(kw in lower for kw in ("dana", "inundación", "riada", "daños")):
         results.append({
             **PROCEDURES_CATALOG["AYUDAS_DANA"],
-            "match_score": 0.91,
-            "reason": "Detectamos mención a daños por la DANA. Existen ayudas municipales específicas.",
+            "match_score": 0.93,
+            "reason": "Hay ayudas municipales específicas para personas afectadas por la DANA.",
         })
 
     return {
         "status": "success",
-        "model": "sede-clara-nlp-v1 (demo)",
+        "model": "govpulse-nlp-v1 (demo)",
         "suggested_procedures": results,
     }

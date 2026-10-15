@@ -1,6 +1,6 @@
 """
-Sede Clara VLC — Portal Único Ciudadano
-Punto de entrada FastAPI. Monta routers y sirve el frontend estático.
+GovPulse València — Que los trámites lleguen a ti, no tú a los trámites.
+Punto de entrada FastAPI.
 """
 
 from pathlib import Path
@@ -11,8 +11,8 @@ from fastapi.responses import FileResponse
 from app.routers import search, procedures
 
 app = FastAPI(
-    title="Sede Clara VLC",
-    description="Portal ciudadano unificado — Hackathon ValenciaHack 2026",
+    title="GovPulse València",
+    description="Portal ciudadano proactivo — Hackathon ValenciaHack 2026",
     version="1.0.0",
 )
 
