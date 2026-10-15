@@ -1,0 +1,11 @@
+{
+  "nombre": "Vlad",
+  "apellidos": "Kovalenko",
+  "edad": 19,
+  "nacionalidad": "Ucrania",
+  "documento": "TIE · protección temporal",
+  "nie": "Y1234567X",
+  "direccion": "C/ de Ramón Asensio, Benimaclet, València",
+  "empadronado": false,
+  "alta_laboral": true
+}

@@ -1,0 +1,29 @@
+{
+  "destacada": {
+    "titulo": "Beca de idiomas para jóvenes",
+    "emisor": "Ajuntament de València",
+    "detalle": "Curso gratuito de valenciano o inglés para menores de 30 años empadronados en València.",
+    "plazo": "Plazo abierto hasta el 30/11/2026",
+    "estado": "disponible"
+  },
+  "recomendaciones": [
+    {
+      "titulo": "EMT Jove",
+      "emisor": "EMT València",
+      "detalle": "12,50 €/mes, 50 % de descuento. Cumples todos los requisitos.",
+      "estado": "disponible"
+    },
+    {
+      "titulo": "Bono Alquiler Joven",
+      "emisor": "Generalitat Valenciana",
+      "detalle": "La convocatoria de 2026 cerró el 11/09/2026. Te avisaremos cuando abra la próxima.",
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "Inscripción como demandante de empleo",
+      "emisor": "Labora",
+      "detalle": "Da acceso a cursos de formación gratuitos.",
+      "estado": "disponible"
+    }
+  ]
+}

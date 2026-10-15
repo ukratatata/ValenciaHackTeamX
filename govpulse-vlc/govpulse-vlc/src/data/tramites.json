@@ -1,0 +1,82 @@
+{
+  "recomendados": [
+    {
+      "id": "sip",
+      "titulo": "Tarjeta sanitaria (SIP)",
+      "emisor": "Conselleria de Sanitat (GVA)",
+      "etiqueta": "Te corresponde",
+      "texto": "La necesitas para tener médico de cabecera y atención sanitaria pública",
+      "checklist": [
+        "Tienes la TIE de protección temporal en vigor",
+        "Tienes alta laboral con contrato",
+        "Empadronamiento: lo comprobamos por ti"
+      ],
+      "boton": "Iniciar trámite"
+    },
+    {
+      "id": "emt",
+      "titulo": "EMT Jove",
+      "emisor": "EMT València",
+      "etiqueta": "Para ti",
+      "texto": "Transporte urbano con un 50 % de descuento",
+      "precio": "12,50 €/mes",
+      "descuento": "50 % de descuento",
+      "checklist": [
+        "Cumples todo: tienes menos de 30 años"
+      ],
+      "boton": "Revisar solicitud"
+    },
+    {
+      "id": "bono",
+      "titulo": "Bono Alquiler Joven (GVA)",
+      "emisor": "Generalitat Valenciana",
+      "etiqueta": "Próximamente",
+      "texto": "Ayuda al alquiler para jóvenes",
+      "checklist": [
+        "La convocatoria de 2026 cerró el 11/09/2026",
+        "Te avisaremos en la próxima convocatoria"
+      ],
+      "boton": "Aviso activado"
+    }
+  ],
+  "disponibles": [
+    {
+      "titulo": "Empadronamiento",
+      "temas": [
+        "vivienda",
+        "extranjeria"
+      ]
+    },
+    {
+      "titulo": "Cita con el médico de familia",
+      "temas": [
+        "salud"
+      ]
+    },
+    {
+      "titulo": "Abono de transporte",
+      "temas": [
+        "movilidad"
+      ]
+    },
+    {
+      "titulo": "Cita en Servicios Sociales",
+      "temas": [
+        "familia"
+      ]
+    },
+    {
+      "titulo": "Curso de valenciano gratuito",
+      "temas": [
+        "extranjeria",
+        "empleo"
+      ]
+    },
+    {
+      "titulo": "Inscripción como demandante de empleo (Labora)",
+      "temas": [
+        "empleo"
+      ]
+    }
+  ]
+}
