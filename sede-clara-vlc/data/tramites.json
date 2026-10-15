@@ -1,0 +1,55 @@
+{
+  "AYUDAS_EMERGENCIA": {
+    "id": "AYUDAS_EMERGENCIA",
+    "title": "Prestación Económica Individualizada de Servicios Sociales (Ayudas de Emergencia)",
+    "description": "Ayudas económicas destinadas a atender situaciones de urgencia personal o familiar: alquiler, suministros, alimentación y necesidades básicas.",
+    "quien_puede": "Personas empadronadas en València en situación de vulnerabilidad económica sobrevenida.",
+    "plazo": "Abierto de forma permanente mientras haya dotación presupuestaria.",
+    "auto_retrieved_docs": [
+      "Certificado histórico de empadronamiento (Padrón Municipal de València)",
+      "Verificación de titularidad catastral (Catastro - interop.)",
+      "Consulta de prestaciones SEPE (interop.)",
+      "Certificado de convivencia (Padrón Municipal)"
+    ],
+    "user_required_docs": [
+      "Último recibo de alquiler o hipoteca",
+      "Extracto bancario de los últimos 3 meses"
+    ],
+    "oficina": "Oficina de Servicios Sociales - Centro Municipal de Servicios Sociales de tu zona",
+    "url_oficial": "https://sede.valencia.es/sede/tramites/prestaciones-economicas"
+  },
+  "PADRON_ALTA": {
+    "id": "PADRON_ALTA",
+    "title": "Inscripción en el Padrón Municipal de Habitantes",
+    "description": "Alta o cambio de domicilio en el municipio de València.",
+    "quien_puede": "Cualquier persona que resida efectivamente en el municipio de València.",
+    "plazo": "Se puede solicitar en cualquier momento. Resolución estimada: 1-4 semanas.",
+    "auto_retrieved_docs": [
+      "Consulta de identidad (DNI/NIE vía Cl@ve)"
+    ],
+    "user_required_docs": [
+      "Contrato de arrendamiento superior a 6 meses o escritura de propiedad",
+      "Recibo de suministro (agua, luz, gas) o alquiler del mes en curso"
+    ],
+    "oficina": "Junta Municipal de Distrito correspondiente a tu domicilio",
+    "url_oficial": "https://sede.valencia.es/sede/tramites/padron"
+  },
+  "AYUDAS_DANA": {
+    "id": "AYUDAS_DANA",
+    "title": "Ayudas Municipales por Daños de la DANA",
+    "description": "Ayudas económicas para personas y familias afectadas por la DANA: daños en vivienda, enseres y vehículos.",
+    "quien_puede": "Personas empadronadas en València con daños acreditados por la DANA.",
+    "plazo": "Convocatoria abierta hasta agotar crédito. Subsanaciones: 10 días hábiles desde el requerimiento.",
+    "auto_retrieved_docs": [
+      "Certificado de empadronamiento (Padrón Municipal)",
+      "Consulta catastral del inmueble afectado",
+      "Informe de Bomberos / Policía Local (si existe en registro municipal)"
+    ],
+    "user_required_docs": [
+      "Fotografías de los daños",
+      "Presupuesto de reparación o factura"
+    ],
+    "oficina": "Oficina de Atención DANA - Tabacalera o Junta Municipal",
+    "url_oficial": "https://sede.valencia.es/sede/tramites/ayudas-dana"
+  }
+}

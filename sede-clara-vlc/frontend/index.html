@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sede Clara VLC - Portal Único Ciudadano</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="bg-slate-100 text-slate-900 font-sans min-h-screen">
+    <div class="max-w-5xl mx-auto p-4 md:p-6 space-y-6">
+
+        <!-- HEADER -->
+        <header class="bg-white p-5 rounded-2xl shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border border-slate-200">
+            <div>
+                <h1 class="text-2xl font-black text-blue-900 tracking-tight">
+                    Sede Clara <span class="text-emerald-600">VLC</span>
+                </h1>
+                <p class="text-xs text-slate-500">Portal único ciudadano · Conectado con Cl@ve</p>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-50 px-4 py-2 rounded-xl border">
+                <div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
+                <span class="text-sm font-semibold text-slate-700">María G. (Verificada Cl@ve)</span>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- COLUMNA IZQUIERDA: PERFIL AUTO-RELLENADO -->
+            <div class="space-y-5">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 space-y-3">
+                    <h3 class="font-bold text-slate-800 text-xs uppercase tracking-wider">
+                        Mis datos (auto-recuperados)
+                    </h3>
+                    <div class="text-xs space-y-2 text-slate-600 bg-slate-50 p-3 rounded-xl">
+                        <p><strong>DNI:</strong> 12345678A</p>
+                        <p><strong>Domicilio:</strong> C/ de la Paz 14, 3º-5ª</p>
+                        <p><strong>Distrito:</strong> Ciutat Vella (La Seu)</p>
+                        <p><strong>Empadronada:</strong>
+                            <span class="text-emerald-600 font-semibold">Sí (24 meses)</span>
+                        </p>
+                        <p><strong>Convivientes:</strong> 2 (1 menor)</p>
+                    </div>
+                    <p class="text-[11px] text-slate-400">
+                        Estos datos se obtienen automáticamente vía interoperabilidad
+                        (Padrón, AEAT, Catastro). No necesitas aportar certificados.
+                    </p>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 space-y-3">
+                    <h3 class="font-bold text-slate-800 text-xs uppercase tracking-wider">Notificaciones</h3>
+                    <label class="flex items-center gap-2 text-xs text-slate-700">
+                        <input type="checkbox" checked> Avisar del estado de mis trámites
+                    </label>
+                    <label class="flex items-center gap-2 text-xs text-slate-700">
+                        <input type="checkbox" checked> Sugerir ayudas compatibles con mi perfil
+                    </label>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: BUSCADOR + RESULTADOS -->
+            <div class="md:col-span-2 space-y-5">
+
+                <!-- BUSCADOR NATURAL -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                    <h2 class="text-lg font-bold text-blue-900">¿Qué necesitas resolver hoy?</h2>
+                    <p class="text-xs text-slate-500">
+                        Describe tu situación con tus propias palabras. El asistente buscará
+                        los trámites compatibles y te dirá exactamente qué necesitas.
+                    </p>
+                    <div class="flex gap-2">
+                        <input
+                            id="userQuery"
+                            type="text"
+                            placeholder="Ej: No tengo trabajo y necesito ayuda para pagar el alquiler..."
+                            class="flex-1 border border-slate-300 px-4 py-2.5 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                        <button
+                            id="searchBtn"
+                            onclick="runNaturalSearch()"
+                            class="bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-700 transition whitespace-nowrap"
+                        >
+                            Buscar trámite
+                        </button>
+                    </div>
+                </div>
+
+                <!-- LOADING SPINNER (oculto por defecto) -->
+                <div id="loadingPanel" class="hidden bg-white p-6 rounded-2xl border border-slate-200 text-center space-y-3">
+                    <div class="inline-block w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+                    <p class="text-sm text-slate-600">Analizando tu situación con IA...</p>
+                </div>
+
+                <!-- RESULTADOS -->
+                <div id="resultsContainer" class="space-y-4"></div>
+
+                <!-- PANEL DE TRAMITACIÓN -->
+                <div id="executionPanel" class="hidden bg-emerald-50 border border-emerald-200 p-6 rounded-2xl space-y-4">
+                    <h3 class="text-base font-bold text-emerald-900">Asistente de Tramitación Automática</h3>
+                    <div id="executionContent" class="text-sm text-emerald-800 space-y-2"></div>
+                    <button
+                        onclick="executeProcedure()"
+                        class="bg-emerald-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-emerald-700 shadow-sm transition"
+                    >
+                        Confirmar y enviar solicitud
+                    </button>
+                </div>
+
+                <!-- ÉXITO -->
+                <div id="successPanel" class="hidden bg-white border-2 border-emerald-300 p-6 rounded-2xl space-y-3 shadow-md">
+                    <h3 class="text-lg font-bold text-emerald-700">Solicitud enviada correctamente</h3>
+                    <div id="successContent" class="text-sm text-slate-700 space-y-2"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="text-center text-xs text-slate-400 pb-4">
+            Sede Clara VLC — Prototipo Hackathon ValenciaHack 2026 · Datos simulados · No vinculante
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
